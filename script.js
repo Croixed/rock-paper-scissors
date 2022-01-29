@@ -26,15 +26,38 @@ function returnHand () {
 
 function playRound(playerSelection, computerSelection) {
 
-  //takes two input functions
   //then compares their results and declares a winner
-  //if 
-
-
+  //if ps === paper:
+  //  if ...
+  if (playerSelection === 'rock') {
+    if (computerSelection === 'scissors') {
+      return `you win, ${playerSelection} beats ${computerSelection}`
+    } else if (computerSelection === 'paper') {
+      return `you lose, ${computerSelection} beats ${playerSelection}`
+    } else {
+      return `you tied, you both picked ${playerSelection}`
+    }
+  } else if (playerSelection === 'paper') {
+    if (computerSelection === 'rock') {
+      return `you win, ${playerSelection} beats ${computerSelection}`
+    } else if (computerSelection === 'scissors') {
+      return `you lose, ${computerSelection} beats ${playerSelection}`
+    } else {
+      return `you tied, you both picked ${playerSelection}`
+    }
+  } else if (playerSelection == 'scissors') { //could have used else instead of else if, but wanted to clarify
+    if (computerSelection === 'paper') {
+      return `you win, ${playerSelection} beats ${computerSelection}`
+    } else if (computerSelection === 'rock') {
+      return `you lose, ${computerSelection} beats ${playerSelection}`
+    } else {
+      return `you tied, you both picked ${playerSelection}`
+    }
+  }
 }
 
 
-let playerHand = humanPlay();
-let compHand = computerPlay();
+//let playerHand = humanPlay();
+//let compHand = computerPlay();
 
 //playRound(playerHand, compHand);
