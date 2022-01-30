@@ -10,7 +10,14 @@ function computerPlay () {
 
 function humanPlay () {
   let result = prompt("Enter Rock/Paper/Scissors: ");
-  return result.toLowerCase();
+  resultLower = result.toLowerCase();
+  if (resultLower === 'rock' || resultLower === 'paper' || resultLower === 'scissors') {
+    return resultLower
+  } else {
+    console.log('try again');
+    //put code here to make the func start over 
+  }
+  
 }
 
 function returnHand () {
@@ -55,6 +62,39 @@ function playRound(playerSelection, computerSelection) {
     }
   }
 }
+
+function rpsSub(pSel, cSel, hand, beats, losesTo) {
+  if (pSel === hand) {
+    if (cSel === beats) {
+      return `you win, ${pSel} beats ${cSel}`
+    } else if (cSel === losesTo) {
+      return `you lose, ${cSel} beats ${pSel}`
+    } else {
+      return `you tied, you both picked ${pSel}`
+    }
+  }
+}
+
+function playRound2(playerSelection, computerSelection) {
+  if (playerSelection === ROCK) {
+    return returnWinner(playerSelection, computerSelection, SCISSORS, PAPER);
+  } else if (playerSelection === PAPER) {
+    return returnWinner(playerSelection, computerSelection, ROCK, SCISSORS);
+  } else {
+    return returnWinner(playerSelection, computerSelection, PAPER, ROCK);
+  }
+}
+
+function returnWinner(playerSelection, computerSelection, beats, losesTo) {
+    if (computerSelection === beats) {
+      return `you win, ${playerSelection} beats ${computerSelection}`
+    } else if (computerSelection === losesTo) {
+      return `you lose, ${computerSelection} beats ${playerSelection}`
+    } else {
+      return `you tied, you both picked ${playerSelection}`
+    }
+}
+
 
 
 //let playerHand = humanPlay();
