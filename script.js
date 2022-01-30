@@ -8,16 +8,15 @@ function computerPlay () {
   return returnHand()
 }
 
-function humanPlay () {
+function humanPlay () { // this is absolute garbage and should be rewritten 
   let result = prompt("Enter Rock/Paper/Scissors: ");
   resultLower = result.toLowerCase();
   if (resultLower === 'rock' || resultLower === 'paper' || resultLower === 'scissors') {
     return resultLower
   } else {
-    console.log('try again');
+    console.log('wrong answer');
     //put code here to make the func start over 
   }
-  
 }
 
 function returnHand () {
@@ -32,52 +31,8 @@ function returnHand () {
 }
 
 function playRound(playerSelection, computerSelection) {
-
-  //then compares their results and declares a winner
-  //if ps === paper:
-  //  if ...
-  if (playerSelection === 'rock') {
-    if (computerSelection === 'scissors') {
-      return `you win, ${playerSelection} beats ${computerSelection}`
-    } else if (computerSelection === 'paper') {
-      return `you lose, ${computerSelection} beats ${playerSelection}`
-    } else {
-      return `you tied, you both picked ${playerSelection}`
-    }
-  } else if (playerSelection === 'paper') {
-    if (computerSelection === 'rock') {
-      return `you win, ${playerSelection} beats ${computerSelection}`
-    } else if (computerSelection === 'scissors') {
-      return `you lose, ${computerSelection} beats ${playerSelection}`
-    } else {
-      return `you tied, you both picked ${playerSelection}`
-    }
-  } else if (playerSelection == 'scissors') { //could have used else instead of else if, but wanted to clarify
-    if (computerSelection === 'paper') {
-      return `you win, ${playerSelection} beats ${computerSelection}`
-    } else if (computerSelection === 'rock') {
-      return `you lose, ${computerSelection} beats ${playerSelection}`
-    } else {
-      return `you tied, you both picked ${playerSelection}`
-    }
-  }
-}
-
-function rpsSub(pSel, cSel, hand, beats, losesTo) {
-  if (pSel === hand) {
-    if (cSel === beats) {
-      return `you win, ${pSel} beats ${cSel}`
-    } else if (cSel === losesTo) {
-      return `you lose, ${cSel} beats ${pSel}`
-    } else {
-      return `you tied, you both picked ${pSel}`
-    }
-  }
-}
-
-function playRound2(playerSelection, computerSelection) {
   if (playerSelection === ROCK) {
-    return returnWinner(playerSelection, computerSelection, SCISSORS, PAPER);
+    return returnWinner(playerSelection, computerSelection, SCISSORS, PAPER); // I'm sure there's a better way than hardcoding the interactions by passing them in as args
   } else if (playerSelection === PAPER) {
     return returnWinner(playerSelection, computerSelection, ROCK, SCISSORS);
   } else {
@@ -95,9 +50,16 @@ function returnWinner(playerSelection, computerSelection, beats, losesTo) {
     }
 }
 
+function game() {
+  playerHand = humanPlay();
+  computerHand = computerPlay();
+  console.log(playRound(playerHand, computerHand));
 
+}
 
-//let playerHand = humanPlay();
-//let compHand = computerPlay();
-
-//playRound(playerHand, compHand);
+// I don't know loops yet
+game();
+game();
+game();
+game();
+game();
