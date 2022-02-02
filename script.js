@@ -59,16 +59,25 @@ function game(e) {
 }
 
 function gameOver() {
+  let matchResultDiv = document.createElement('div');
+  matchResultDiv.style.cssText = 'font-size: 20px; font-family: sans-serif; font-weight: bold;';
+  //set class
+  matchResultDiv.classList.add("last-round");
   if (humanScore > computerScore) {
-    console.log('you won'); // todo: append a div instead of logging
+    matchResultDiv.textContent = 'You won the last match! Now you can play another round.';
   } else {
-    console.log('you lost');
+    matchResultDiv.textContent = 'You lost the last match! Now you can play another round.';
   }; 
+
   humanScore = 0;
   computerScore = 0;
+
   const divList = document.querySelectorAll('.last-round');
-  console.log(divList);
-  divList.forEach(scoreHistory => scoreContainer.removeChild(scoreHistory))
+  //console.log(divList);
+  
+  divList.forEach(scoreHistory => scoreContainer.removeChild(scoreHistory));
+  lastRound = document.querySelector('.last-round');
+  scoreContainer.insertBefore(matchResultDiv, lastRound);
 
 };
 
@@ -79,18 +88,17 @@ let computerScore = 0;
 function updateScore(){
   const scoreDiv = document.querySelector(".score-nums");
   //console.log(scoreDiv.textContent);
-  scoreDiv.textContent = `You: ${humanScore} CPU-Sigma: ${computerScore}`;
+  scoreDiv.textContent = `You: ${humanScore}\t\tCPU-Σ: ${computerScore}`; // double tabs is probably bad, should use margin or something
 };
 
 function displayResults() {
   const resultDiv = document.createElement('div');
   resultDiv.classList.add("last-round")
   resultDiv.textContent = playRound(playerHand, computerHand);
-  lastRound = document.querySelector('.last-round') // we set this here so the first last round is always the arg we pass in the next line
+  lastRound = document.querySelector('.last-round'); // we set this here so the first last round is always the arg we pass in the next line
   scoreContainer.insertBefore(resultDiv, lastRound); //insertbefore adds to end for the first one, then adds the rest on top
 }
 
-//git push origin rps-ui
 
 const rockButton = document.querySelector(".rock");
 const paperButton = document.querySelector(".paper");
