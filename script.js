@@ -50,15 +50,23 @@ function returnWinner(playerSelection, computerSelection, beats, losesTo) {
   }
 }
 
-function game() {
+function game(e) {
+  console.log(e);
   playerHand = humanPlay();
   computerHand = computerPlay();
   console.log(playRound(playerHand, computerHand));
 }
 
+//git push origin rps-ui
 // I don't know loops yet
-game();
-game();
-game();
-game();
-game();
+//game();
+
+const rockButton = document.querySelector(".rock");
+rockButton.addEventListener('click', game);
+
+function humanPlayTwo () {
+  //console.log(e);
+  //let result = ;
+  //console.log();
+  //return result;
+}
