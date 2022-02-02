@@ -51,8 +51,9 @@ function returnWinner(playerSelection, computerSelection, beats, losesTo) {
 }
 
 function game(e) {
-  console.log(e);
-  playerHand = humanPlay();
+  //playerHand = e.target.textContent;
+
+  playerHand = humanPlayTwo(e);
   computerHand = computerPlay();
   console.log(playRound(playerHand, computerHand));
 }
@@ -64,9 +65,7 @@ function game(e) {
 const rockButton = document.querySelector(".rock");
 rockButton.addEventListener('click', game);
 
-function humanPlayTwo () {
-  //console.log(e);
-  //let result = ;
-  //console.log();
-  //return result;
+function humanPlayTwo (input) {
+  // console.log(input.target.textContent);
+  return input.target.textContent
 }
