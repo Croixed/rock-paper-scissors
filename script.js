@@ -41,20 +41,19 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function returnWinner(playerSelection, computerSelection, beats, losesTo) {
-    if (computerSelection === beats) {
-      return `you win, ${playerSelection} beats ${computerSelection}`
-    } else if (computerSelection === losesTo) {
-      return `you lose, ${computerSelection} beats ${playerSelection}`
-    } else {
-      return `you tied, you both picked ${playerSelection}`
-    }
+  if (computerSelection === beats) {
+    return `you win, ${playerSelection} beats ${computerSelection}`
+  } else if (computerSelection === losesTo) {
+    return `you lose, ${computerSelection} beats ${playerSelection}`
+  } else {
+    return `you tied, you both picked ${playerSelection}`
+  }
 }
 
 function game() {
   playerHand = humanPlay();
   computerHand = computerPlay();
   console.log(playRound(playerHand, computerHand));
-
 }
 
 // I don't know loops yet
