@@ -39,10 +39,21 @@ function returnWinner(playerSelection, computerSelection, beats, losesTo) {
   }
 }
 
+const scoreContainer = document.querySelector(".score-container");
+
+
 function game(e) {
   playerHand = humanPlay(e);
   computerHand = computerPlay();
-  console.log(playRound(playerHand, computerHand));
+  //console.log(playRound(playerHand, computerHand));
+
+  const resultDiv = document.createElement('div');
+  resultDiv.classList.add("last-round")
+  resultDiv.textContent = playRound(playerHand, computerHand);
+  //scoreContainer.appendChild(resultDiv);
+  lastRound = document.querySelector('.last-round') // we set this here so the first last round is always the arg we pass in the next line
+  scoreContainer.insertBefore(resultDiv, lastRound);
+  //console.log(resultDiv)
 }
 
 //git push origin rps-ui
