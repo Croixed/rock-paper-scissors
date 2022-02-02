@@ -31,8 +31,10 @@ function playRound(playerSelection, computerSelection) {
 
 function returnWinner(playerSelection, computerSelection, beats, losesTo) {
   if (computerSelection === beats) {
+    humanScore += 1;
     return `you win, ${playerSelection} beats ${computerSelection}`
   } else if (computerSelection === losesTo) {
+    computerScore += 1;
     return `you lose, ${computerSelection} beats ${playerSelection}`
   } else {
     return `you tied, you both picked ${playerSelection}`
@@ -46,14 +48,26 @@ function game(e) {
   playerHand = humanPlay(e);
   computerHand = computerPlay();
   //console.log(playRound(playerHand, computerHand));
+  displayResults();
+  updateScore();
+}
 
+// I feel like using global vars are bad but I can't think of a better, simpler solution
+let humanScore = 0;
+let computerScore = 0;
+
+function updateScore(){
+  const scoreDiv = document.querySelector(".score-nums");
+  //console.log(scoreDiv.textContent);
+  scoreDiv.textContent = `You: ${humanScore} CPU-Sigma: ${computerScore}`;
+};
+
+function displayResults() {
   const resultDiv = document.createElement('div');
   resultDiv.classList.add("last-round")
   resultDiv.textContent = playRound(playerHand, computerHand);
-  //scoreContainer.appendChild(resultDiv);
   lastRound = document.querySelector('.last-round') // we set this here so the first last round is always the arg we pass in the next line
   scoreContainer.insertBefore(resultDiv, lastRound);
-  //console.log(resultDiv)
 }
 
 //git push origin rps-ui
