@@ -8,17 +8,6 @@ function computerPlay () {
   return returnHand()
 }
 
-function humanPlay () { // this is absolute garbage and should be rewritten 
-  let result = prompt("Enter Rock/Paper/Scissors: ");
-  resultLower = result.toLowerCase();
-  if (resultLower === 'rock' || resultLower === 'paper' || resultLower === 'scissors') {
-    return resultLower
-  } else {
-    console.log('wrong answer');
-    //put code here to make the func start over 
-  }
-}
-
 function returnHand () {
   let result = Math.floor(Math.random() * 3);
   if (result === 0) {
@@ -51,21 +40,22 @@ function returnWinner(playerSelection, computerSelection, beats, losesTo) {
 }
 
 function game(e) {
-  //playerHand = e.target.textContent;
-
-  playerHand = humanPlayTwo(e);
+  playerHand = humanPlay(e);
   computerHand = computerPlay();
   console.log(playRound(playerHand, computerHand));
 }
 
 //git push origin rps-ui
-// I don't know loops yet
-//game();
 
 const rockButton = document.querySelector(".rock");
-rockButton.addEventListener('click', game);
+const paperButton = document.querySelector(".paper");
+const scissorsButton = document.querySelector(".scissors");
 
-function humanPlayTwo (input) {
-  // console.log(input.target.textContent);
+rockButton.addEventListener('click', game);
+paperButton.addEventListener('click', game);
+scissorsButton.addEventListener('click', game);
+
+function humanPlay (input) {
+  // returns a string of the text content of the event object
   return input.target.textContent
 }
