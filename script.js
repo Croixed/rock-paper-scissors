@@ -3,7 +3,7 @@ const PAPER = 'paper';
 const SCISSORS = 'scissors';
 
 
-function computerPlay () {
+function computerPlay () { // technically not needed
   //return R, P, or S
   return returnHand()
 }
@@ -50,7 +50,27 @@ function game(e) {
   //console.log(playRound(playerHand, computerHand));
   displayResults();
   updateScore();
+
+  if (humanScore === 5 || computerScore === 5) {
+    gameOver();
+    updateScore();
+  }
+
 }
+
+function gameOver() {
+  if (humanScore > computerScore) {
+    console.log('you won'); // todo: append a div instead of logging
+  } else {
+    console.log('you lost');
+  }; 
+  humanScore = 0;
+  computerScore = 0;
+  const divList = document.querySelectorAll('.last-round');
+  console.log(divList);
+  divList.forEach(scoreHistory => scoreContainer.removeChild(scoreHistory))
+
+};
 
 // I feel like using global vars are bad but I can't think of a better, simpler solution
 let humanScore = 0;
@@ -67,7 +87,7 @@ function displayResults() {
   resultDiv.classList.add("last-round")
   resultDiv.textContent = playRound(playerHand, computerHand);
   lastRound = document.querySelector('.last-round') // we set this here so the first last round is always the arg we pass in the next line
-  scoreContainer.insertBefore(resultDiv, lastRound);
+  scoreContainer.insertBefore(resultDiv, lastRound); //insertbefore adds to end for the first one, then adds the rest on top
 }
 
 //git push origin rps-ui
