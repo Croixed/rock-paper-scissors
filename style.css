@@ -1,6 +1,10 @@
 * {
-  background-color: darkslategray;
-  color: white;
+  background-color: #001219;
+  color: #e5e5e5;
+}
+
+.title-card {
+  padding: 14px;
 }
 
 .title {
@@ -10,25 +14,32 @@
   font-weight: bold;
 }
 
+.title-text {
+  text-align: center;
+  font-family: sans-serif;
+}
+
 .content {
-  background-color: gray;
+  background-color: #14213d;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 20px 0px;
 }
 
 .button-container {
   flex-grow: 1;
-  
   display: flex;
   justify-content: space-around;
-  background-color: rgb(160, 160, 226);
+  background-color: #14213d;
   padding: 10px;
 }
 
 button {
   width: 120px;
   height: 40px;
+  background-color: #fca311;
+  color: white;
+  font-weight: bold;
 }
 
 .score-title,
