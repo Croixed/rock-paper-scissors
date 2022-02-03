@@ -12,6 +12,7 @@
   font-size: 26px;
   font-family: sans-serif;
   font-weight: bold;
+  text-shadow: 0 0 0.3em rgb(222, 222, 222);
 }
 
 .title-text {
@@ -40,6 +41,7 @@ button {
   background-color: #fca311;
   color: white;
   font-weight: bold;
+  text-shadow: 0 0 0.5em rgb(2, 2, 2);
 }
 
 .score-title,
